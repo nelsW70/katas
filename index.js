@@ -4291,3 +4291,18 @@ const joinArraysById2 = (arr1, arr2) => {
 
   return joinedArray;
 };
+
+// https://www.codewars.com/kata/553e8b195b853c6db4000048
+const hasUniqueChars = str => str.length === new Set(str).size;
+
+// https://www.codewars.com/kata/58235a167a8cb37e1a0000db
+const numberOfPairs = gloves =>
+  Object.values(
+    gloves.reduce((acc, curr) => {
+      acc[curr] ? acc[curr]++ : (acc[curr] = 1);
+      return acc;
+    }, {})
+  )
+    .filter(item => item > 1)
+    .map(item2 => Math.floor(item2 / 2))
+    .reduce((acc, curr) => acc + curr, 0);
