@@ -4306,3 +4306,26 @@ const numberOfPairs = gloves =>
     .filter(item => item > 1)
     .map(item2 => Math.floor(item2 / 2))
     .reduce((acc, curr) => acc + curr, 0);
+
+// https://www.codewars.com/kata/55eeddff3f64c954c2000059
+const sumConsecutives = s =>
+  s.reduce((acc, curr, i, arr) => {
+    if (curr !== arr[i - 1]) acc.push(curr);
+    else acc[acc.length - 1] += curr;
+    return acc;
+  }, []);
+
+const sumConsecutives1 = arr => {
+  let result = [];
+  let temp = 0;
+
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] === arr[i + 1]) {
+      temp += arr[i];
+    } else if (arr[i] !== arr[i + 1]) {
+      result.push(temp + arr[i]);
+      temp = 0;
+    }
+  }
+  return result;
+};
