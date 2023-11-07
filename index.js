@@ -4357,4 +4357,19 @@ const freqSort = arr =>
       .map(item => Array(item[1]).fill(Number(item[0])))
   );
 
+// https://www.codewars.com/kata/5729c30961cecadc4f001878
+const uniteUnique = (...arr) => [...new Set(arr.flat())];
 
+// https://www.codewars.com/kata/52bc74d4ac05d0945d00054e
+const firstNonRepeatingLetter = s => {
+  const uniqChar = s
+    .toLowerCase()
+    .split('')
+    .find(
+      item =>
+        s.toLowerCase().split('').indexOf(item) ===
+        s.toLowerCase().split('').lastIndexOf(item)
+    );
+
+  return uniqChar ? s[s.toLowerCase().split('').indexOf(uniqChar)] : '';
+};
