@@ -4329,3 +4329,32 @@ const sumConsecutives1 = arr => {
   }
   return result;
 };
+
+// https://www.codewars.com/kata/59f08f89a5e129c543000069
+const dup = s => s.map(x => x.replace(/(.)\1+/g, '$1'));
+
+const dup1 = s =>
+  s.map(item =>
+    item
+      .split('')
+      .map((sub, index) => (sub === item[index - 1] ? null : sub))
+      .filter(Boolean)
+      .join('')
+  );
+
+//https://www.codewars.com/kata/5a8d2bf60025e9163c0000bc
+const freqSort = arr =>
+  [].concat(
+    ...Object.entries(
+      arr.reduce((acc, curr) => {
+        acc[curr] ? acc[curr]++ : (acc[curr] = 1);
+        return acc;
+      }, {})
+    )
+      .sort(([aKey, aVal], [bKey, bVal]) =>
+        bVal === aVal ? Number(aKey) - Number(bKey) : bVal - aVal
+      )
+      .map(item => Array(item[1]).fill(Number(item[0])))
+  );
+
+
