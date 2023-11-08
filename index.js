@@ -4373,3 +4373,47 @@ const firstNonRepeatingLetter = s => {
 
   return uniqChar ? s[s.toLowerCase().split('').indexOf(uniqChar)] : '';
 };
+
+// https://www.codewars.com/kata/528d9adf0e03778b9e00067e
+const mineLocation = field => {
+  let mineCoords = [];
+  field.map((item, index) =>
+    item.includes(1)
+      ? (mineCoords.push(index), mineCoords.push(item.indexOf(1)))
+      : item
+  );
+
+  return mineCoords;
+};
+
+// https://www.codewars.com/kata/51f41fe7e8f176e70d0002b9
+const sortme = names =>
+  names.sort((a, b) => a.toLowerCase().localeCompare(b.toLowerCase()));
+
+// https://www.codewars.com/kata/529e2e1f16cb0fcccb000a6b
+const splitInteger = (num, parts) => {
+  let chunk = Math.floor(num / parts);
+
+  const vals = [];
+
+  for (let i = 0; i < parts; i++) {
+    vals.push(chunk);
+  }
+
+  if (vals.reduce((acc, curr) => acc + curr, 0) === num) return vals;
+
+  for (let i = 0; i < parts; i++) {
+    vals[i]++;
+    if (vals.reduce((acc, curr) => acc + curr, 0) === num) return vals;
+  }
+};
+
+const splitInteger1 = (num, parts) => {
+  const remainder = num % parts;
+  const int = Math.floor(num / parts);
+
+  return [
+    ...new Array(parts - remainder).fill(int),
+    ...new Array(remainder).fill(int + 1),
+  ];
+};
