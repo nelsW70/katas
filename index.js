@@ -4417,3 +4417,26 @@ const splitInteger1 = (num, parts) => {
     ...new Array(remainder).fill(int + 1),
   ];
 };
+
+// https://www.codewars.com/kata/57f5e7bd60d0a0cfd900032d
+const missingNo = arr =>
+  (100 * (100 + 1)) / 2 - arr.reduce((acc, curr) => acc + curr, 0);
+
+// https://www.codewars.com/kata/5884b6550785f7c58f000047
+const group = arr => {
+  let result = [];
+  let currVals = {};
+
+  for (let num of arr) {
+    if (!currVals[num]) result.push((currVals[num] = []));
+    currVals[num].push(num);
+  }
+
+  return result;
+};
+
+const group1 = arr =>
+  [...new Set(arr)].map(item => arr.filter(subItem => subItem == item));
+
+// https://www.codewars.com/kata/55f81f9aa51f9b72a200002f
+const findUnique = numbers => numbers.reduce((acc, curr) => acc ^ curr);
