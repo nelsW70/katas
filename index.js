@@ -4440,3 +4440,21 @@ const group1 = arr =>
 
 // https://www.codewars.com/kata/55f81f9aa51f9b72a200002f
 const findUnique = numbers => numbers.reduce((acc, curr) => acc ^ curr);
+
+// https://www.codewars.com/kata/5389864ec72ce03383000484
+const autocomplete = (input, dictionary) => {
+  let temp = [];
+
+  for (let i = 0; i < dictionary.length; i++) {
+    if (
+      dictionary[i]
+        .replace(/[^a-zA-Z]/gi, '')
+        .toLowerCase()
+        .startsWith(input.replace(/[^a-zA-Z]/gi, '').toLowerCase()) &&
+      temp.length < 5
+    )
+      temp.push(dictionary[i]);
+  }
+
+  return temp;
+};
