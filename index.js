@@ -4458,3 +4458,11 @@ const autocomplete = (input, dictionary) => {
 
   return temp;
 };
+
+// https://www.codewars.com/kata/57f625992f4d53c24200070e
+const bingo = (ticket, win) =>
+  ticket.filter(item1 =>
+    item1[0].split('').some(item2 => item2.charCodeAt(0) == item1[1])
+  ).length >= win
+    ? 'Winner!'
+    : 'Loser!';
