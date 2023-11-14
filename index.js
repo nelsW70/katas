@@ -4501,3 +4501,6 @@ const consonantSubLargestVal1 = s =>
       ),
     0
   );
+
+// TODO
+// https://www.codewars.com/kata/5418a1dd6d8216e18a0012b2s
