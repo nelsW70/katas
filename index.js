@@ -4466,3 +4466,38 @@ const bingo = (ticket, win) =>
   ).length >= win
     ? 'Winner!'
     : 'Loser!';
+
+// https://www.codewars.com/kata/5208f99aee097e6552000148
+const breakCase = str =>
+  str
+    .split('')
+    .map(item => (item.toUpperCase() === item ? ' ' + item : item))
+    .join('');
+
+const breakCase1 = str => str.replace(/([A-Z])/g, ' $1');
+
+// https://www.codewars.com/kata/59c633e7dcc4053512000073
+const consonantSubLargestVal = s =>
+  Math.max(
+    ...s
+      .replace(/[aeiou]/gi, ' ')
+      .split(' ')
+      .filter(Boolean)
+      .map(item =>
+        [...item].reduce(
+          (acc, curr) =>
+            acc + ('abcdefghijklmnopqrstuvwxyz'.split('').indexOf(curr) + 1),
+          0
+        )
+      )
+  );
+
+const consonantSubLargestVal1 = s =>
+  s.split(/[aeiou]+/).reduce(
+    (s, n) =>
+      Math.max(
+        s,
+        n.split('').reduce((a, b) => a + b.charCodeAt(0) - 96, 0)
+      ),
+    0
+  );
