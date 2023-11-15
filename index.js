@@ -4502,5 +4502,23 @@ const consonantSubLargestVal1 = s =>
     0
   );
 
+// https://www.codewars.com/kata/54eea36b7f914221eb000e2f
+const sortItNthChar = (list, n) =>
+  list
+    .split(', ')
+    .sort((a, b) => {
+      const charCodeA = a.toLowerCase().charCodeAt(n - 1);
+      const charCodeB = b.toLowerCase().charCodeAt(n - 1);
+
+      return charCodeA === charCodeB
+        ? a.localeCompare(b)
+        : charCodeA - charCodeB;
+    })
+    .join(', ');
+
+// https://www.codewars.com/kata/582642b1083e12521f0000da
+const arrayMash = (array1, array2) =>
+  array1.flatMap((_, index) => [array1[index], array2[index]]);
+
 // TODO
 // https://www.codewars.com/kata/5418a1dd6d8216e18a0012b2s
