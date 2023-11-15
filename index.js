@@ -4520,5 +4520,33 @@ const sortItNthChar = (list, n) =>
 const arrayMash = (array1, array2) =>
   array1.flatMap((_, index) => [array1[index], array2[index]]);
 
-// TODO
-// https://www.codewars.com/kata/5418a1dd6d8216e18a0012b2s
+// https://www.codewars.com/kata/520d9c27e9940532eb00018e
+const dupArgs = (...vals) => vals.length !== new Set(vals).size;
+
+// https://www.codewars.com/kata/5a1dc4baffe75f270200006b
+const onlyDuplicates = str =>
+  str
+    .split('')
+    .filter(item => str.indexOf(item) !== str.lastIndexOf(item))
+    .join('');
+
+const onlyDuplicates1 = str =>
+  str
+    .split('')
+    .filter(
+      item => str.replace(new RegExp(item, 'g'), '').length !== str.length - 1
+    )
+    .join('');
+
+// does not maintain order of char in string
+const onlyDuplicates2 = str => {
+  const tally = str.split('').reduce((acc, curr) => {
+    acc[curr] ? acc[curr]++ : (acc[curr] = 1);
+    return acc;
+  }, {});
+
+  return Object.entries(tally)
+    .filter(([_, value]) => value > 1)
+    .map(([k, v]) => k.repeat(v))
+    .join('');
+};
