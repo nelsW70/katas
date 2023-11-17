@@ -4569,3 +4569,11 @@ const towerBuilder1 = nFloors =>
     const spaces = ' '.repeat(nFloors - i - 1);
     return spaces + '*'.repeat(i + i + 1) + spaces;
   });
+
+const towerBuilder2 = nFloors =>
+  [...Array(nFloors)].map(
+    (_, i) =>
+      ' '.repeat(nFloors - i - 1) +
+      '*'.repeat(i * 2 + 1) +
+      ' '.repeat(nFloors - i - 1)
+  );
