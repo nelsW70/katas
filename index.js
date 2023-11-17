@@ -4550,3 +4550,22 @@ const onlyDuplicates2 = str => {
     .map(([k, v]) => k.repeat(v))
     .join('');
 };
+
+// https://www.codewars.com/kata/576757b1df89ecf5bd00073b
+const towerBuilder = nFloors => {
+  let tower = [];
+  for (let i = 0; i < nFloors; i++) {
+    tower.push(
+      ' '.repeat(nFloors - i - 1) +
+        '*'.repeat(i * 2 + 1) +
+        ' '.repeat(nFloors - i - 1)
+    );
+  }
+  return tower;
+};
+
+const towerBuilder1 = nFloors =>
+  Array.from({ length: nFloors }, (_, index) => {
+    const spaces = ' '.repeat(nFloors - index - 1);
+    return spaces + '*'.repeat(index + index + 1) + spaces;
+  });
