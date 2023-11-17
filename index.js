@@ -4565,7 +4565,7 @@ const towerBuilder = nFloors => {
 };
 
 const towerBuilder1 = nFloors =>
-  Array.from({ length: nFloors }, (_, index) => {
-    const spaces = ' '.repeat(nFloors - index - 1);
-    return spaces + '*'.repeat(index + index + 1) + spaces;
+  Array.from({ length: nFloors }, (_, i) => {
+    const spaces = ' '.repeat(nFloors - i - 1);
+    return spaces + '*'.repeat(i + i + 1) + spaces;
   });
