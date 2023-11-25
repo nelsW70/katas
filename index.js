@@ -4577,3 +4577,24 @@ const towerBuilder2 = nFloors =>
       '*'.repeat(i * 2 + 1) +
       ' '.repeat(nFloors - i - 1)
   );
+// https://www.codewars.com/kata/593f50f343030bd35e0000c6
+const encode1 = plaintext =>
+  plaintext.replace(/[a-z]/gi, item => 1 - (item.charCodeAt(0) % 2));
+
+const encode2 = plaintext =>
+  plaintext
+    .split('')
+    .map(item => {
+      if ('abcdefghijklmnopqrstuvwxyz'.indexOf(item.toLowerCase()) == -1)
+        return item;
+      if ('abcdefghijklmnopqrstuvwxyz'.indexOf(item.toLowerCase()) % 2)
+        return 1;
+      else return 0;
+    })
+    .join('');
+
+// https://www.codewars.com/kata/53da6a7e112bd15cbc000012
+const sortDict = dict =>
+  Object.keys(dict)
+    .map(item => [isNaN(item) ? item : Number(item), dict[item]])
+    .sort((a, b) => b[1] - a[1]);
