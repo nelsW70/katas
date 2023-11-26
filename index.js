@@ -4598,3 +4598,7 @@ const sortDict = dict =>
   Object.keys(dict)
     .map(item => [isNaN(item) ? item : Number(item), dict[item]])
     .sort((a, b) => b[1] - a[1]);
+
+// https://www.codewars.com/kata/5747fcfce2fab91f43000697
+const exampleSort = (arr, exampleArr) =>
+  arr.sort((a, b) => exampleArr.indexOf(a) - exampleArr.indexOf(b));
