@@ -4602,3 +4602,28 @@ const sortDict = dict =>
 // https://www.codewars.com/kata/5747fcfce2fab91f43000697
 const exampleSort = (arr, exampleArr) =>
   arr.sort((a, b) => exampleArr.indexOf(a) - exampleArr.indexOf(b));
+
+// console.log(int.toString(2));
+
+// https://www.codewars.com/kata/59fa8e2646d8433ee200003f
+const sortByBit = arr =>
+  arr.sort((a, b) =>
+    a.toString(2).replaceAll('0', '').length ===
+    b.toString(2).replaceAll('0', '').length
+      ? a - b
+      : a.toString(2).replaceAll('0', '').length -
+        b.toString(2).replaceAll('0', '').length
+  );
+
+const sortByBit1 = arr =>
+  arr.sort(
+    (a, b) =>
+      a.toString(2).replace(/0/g, '') - b.toString(2).replace(/0/g, '') || a - b
+  );
+
+// https://www.codewars.com/kata/559576d984d6962f8c00003c
+const arr2bin1 = arr => {
+  if (arr.some(item => typeof item !== 'number')) return false;
+  if (!arr.length) return '0';
+  else return arr.reduce((acc, curr) => acc + curr, 0).toString(2);
+};
