@@ -4643,3 +4643,17 @@ const aToZ = str => {
     .map(x => alpha[x])
     .join('');
 };
+
+// https://www.codewars.com/kata/5a145ab08ba9148dd6000094
+const doubles = s => {
+  const doublesRemoved = [];
+  for (const char of s) {
+    if (
+      doublesRemoved.length !== 0 &&
+      doublesRemoved[doublesRemoved.length - 1] == char
+    )
+      doublesRemoved.pop();
+    else doublesRemoved.push(char);
+  }
+  return doublesRemoved.join('');
+};
