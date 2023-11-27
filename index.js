@@ -4627,3 +4627,19 @@ const arr2bin1 = arr => {
   if (!arr.length) return '0';
   else return arr.reduce((acc, curr) => acc + curr, 0).toString(2);
 };
+
+// https://www.codewars.com/kata/6512b3775bf8500baea77663
+const aToZ = str => {
+  const alpha = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'.split(
+    ''
+  );
+  const range = (start, stop, step) =>
+    Array.from(
+      { length: (stop - start) / step + 1 },
+      (_, i) => start + i * step
+    );
+
+  return range(alpha.indexOf(str.charAt(0)), alpha.indexOf(str.charAt(2)), 1)
+    .map(x => alpha[x])
+    .join('');
+};
