@@ -4657,3 +4657,17 @@ const doubles = s => {
   }
   return doublesRemoved.join('');
 };
+
+// https://www.codewars.com/kata/5777fe3f355edbf0a5000d11
+const xMarksTheSpot = input => {
+  let location = [];
+
+  input.map((item, index) => {
+    if (item.includes('x')) location.push(index);
+    item.map((item2, index2) => {
+      if (item2.includes('x')) location.push(index2);
+    });
+  });
+
+  return location.length !== 2 ? [] : location;
+};
