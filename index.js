@@ -4705,3 +4705,9 @@ const sortArray1 = (a1, a2) => {
 
 const sortArray2 = (a1, a2) =>
   a1.map(item1 => a2.find(item2 => item1[0] === item2[0]));
+
+// https://www.codewars.com/kata/51e704f2d8dbace389000279
+const arraysSimilar = (arr1, arr2) =>
+  arr1.length !== arr2.length
+    ? false
+    : arr1.sort().every((item, index) => item === arr2.sort()[index]);
