@@ -4671,3 +4671,37 @@ const xMarksTheSpot = input => {
 
   return location.length !== 2 ? [] : location;
 };
+
+// https://www.codewars.com/kata/55d5da66a0e378b8bc0000c6
+const getCharacters = (obj, key, val) => {
+  let foundCharacters = [];
+  obj[`characters`].map(item =>
+    item.hasOwnProperty(key)
+      ? item[`${key}`].toLowerCase() === val.toLowerCase()
+        ? foundCharacters.push(item)
+        : null
+      : null
+  );
+  return foundCharacters;
+};
+
+const getCharacters1 = (obj, key, val) =>
+  obj.characters.filter(
+    item => (item[key] || '').toLowerCase() === val.toLowerCase()
+  );
+
+// https://www.codewars.com/kata/57fe864854685b1c420002e0
+const sortArray1 = (a1, a2) => {
+  const order = a2.map(item =>
+    a1.findIndex(item2 => item2.charAt(0) === item.charAt(0))
+  );
+
+  let newOrder = Array(a2.length).fill(0);
+
+  a2.map((item, index) => newOrder.splice(order[index], 1, item));
+
+  return newOrder;
+};
+
+const sortArray2 = (a1, a2) =>
+  a1.map(item1 => a2.find(item2 => item1[0] === item2[0]));
