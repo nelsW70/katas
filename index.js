@@ -4709,3 +4709,38 @@ const arraysSimilar = (arr1, arr2) =>
   arr1.length !== arr2.length
     ? false
     : arr1.sort().every((item, index) => item === arr2.sort()[index]);
+
+// https://www.codewars.com/kata/585db3e8eec141ce9a00008f
+const reverseVowels = s => {
+  const arr = s.split('');
+
+  let left = 0;
+  let right = arr.length;
+
+  const vowels = ['A', 'E', 'I', 'O', 'U', 'a', 'e', 'i', 'o', 'u'];
+
+  while (left < right) {
+    if (vowels.indexOf(arr[left]) === -1) {
+      left++;
+      continue;
+    }
+    if (vowels.indexOf(arr[right]) === -1) {
+      right--;
+      continue;
+    }
+
+    const temp = arr[left];
+    arr[left] = arr[right];
+    arr[right] = temp;
+
+    left++;
+    right--;
+  }
+
+  return arr.join('');
+};
+
+const reverseVowels1 = str => {
+  let vowels = str.replace(/[^aeiou]/gi, '').split('');
+  return str.replace(/[aeiou]/gi, _ => vowels.pop());
+};
