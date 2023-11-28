@@ -4603,8 +4603,6 @@ const sortDict = dict =>
 const exampleSort = (arr, exampleArr) =>
   arr.sort((a, b) => exampleArr.indexOf(a) - exampleArr.indexOf(b));
 
-// console.log(int.toString(2));
-
 // https://www.codewars.com/kata/59fa8e2646d8433ee200003f
 const sortByBit = arr =>
   arr.sort((a, b) =>
