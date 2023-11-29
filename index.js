@@ -4744,3 +4744,27 @@ const reverseVowels1 = str => {
   let vowels = str.replace(/[^aeiou]/gi, '').split('');
   return str.replace(/[aeiou]/gi, _ => vowels.pop());
 };
+
+const reverseVowels2 = str => {
+  let vowels = str.match(/[aeiou]/gi);
+  return str.replace(/[aeiou]/gi, _ => vowels.pop());
+};
+
+// https://www.codewars.com/kata/56b97b776ffcea598a0006f2
+const bubblesortOnce = a => {
+  let result = [...a];
+
+  for (let i = 0; i < a.length - 1; i++) {
+    if (result[i] > result[i + 1]) {
+      [result[i], result[i + 1]] = [result[i + 1], result[i]];
+    }
+  }
+  return result;
+};
+
+const bubblesortOnce1 = a =>
+  [...a].map((item, index, arr) =>
+    item > arr[index + 1]
+      ? ((arr[index] = arr[index + 1]), (arr[index + 1] = item), arr[index])
+      : item
+  );
