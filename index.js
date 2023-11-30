@@ -4768,3 +4768,10 @@ const bubblesortOnce1 = a =>
       ? ((arr[index] = arr[index + 1]), (arr[index + 1] = item), arr[index])
       : item
   );
+
+// https://www.codewars.com/kata/598f76a44f613e0e0b000026
+const sumOfIntegersInString = s =>
+  s
+    .replace(/\D/g, ' ')
+    .split(' ')
+    .reduce((acc, curr) => acc + Number(curr), 0);
