@@ -4775,3 +4775,39 @@ const sumOfIntegersInString = s =>
     .replace(/\D/g, ' ')
     .split(' ')
     .reduce((acc, curr) => acc + Number(curr), 0);
+
+// https://www.codewars.com/kata/spoonerize-me
+
+const spoonerize = words =>
+  words
+    .split(' ')
+    .map((item, index, arr) =>
+      index === 0
+        ? (item = arr[index + 1].charAt(0) + item.substring(1))
+        : (item = arr[index - 1].charAt(0) + item.substring(1))
+    )
+    .join(' ');
+
+// https://www.codewars.com/kata/56dbed3a13c2f61ae3000bcd
+const noonerize = arr => {
+  if (arr.some(item => typeof item !== 'number')) return 'invalid array';
+
+  const [a, b] = arr
+    .map(item1 => item1.toString())
+    .map((item2, index, arr) =>
+      index === 0
+        ? Number((item2 = arr[index + 1].charAt(0) + item2.substring(1)))
+        : Number((item2 = arr[index - 1].charAt(0) + item2.substring(1)))
+    );
+
+  return Math.abs(a - b);
+};
+
+const noonerize1 = numbers => {
+  let x, y;
+
+  [x, y] = numbers.map(String);
+  [x, y] = [y[0] + x.slice(1), x[0] + y.slice(1)].map(Number);
+
+  return x && y ? Math.abs(x - y) : 'invalid array';
+};
