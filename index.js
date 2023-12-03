@@ -4811,3 +4811,27 @@ const noonerize1 = numbers => {
 
   return x && y ? Math.abs(x - y) : 'invalid array';
 };
+
+// https://www.codewars.com/kata/58ef87dc4db9b24c6c000092
+const sectSort = (array, start, length) =>
+  typeof length !== 'number'
+    ? [...array.slice(0, start), ...array.slice(start).sort((a, b) => a - b)]
+    : [
+        ...array.slice(0, start),
+        ...array.slice(start, start + length).sort((a, b) => a - b),
+        ...array.slice(start + length, array.length),
+      ];
+
+// https://www.codewars.com/kata/56b5dc75d362eac53d000bc8
+const calculateString = str => {
+  const clean = str.replace(/[^0-9\+\-\*\/\.]/g, '');
+  const operator = clean.replace(/[^/[\+\-\*\/]/g, '');
+  const [valA, valB] = clean.split(operator);
+
+  if (operator == '*') return (+valA * +valB).toFixed();
+  if (operator == '+') return (+valA + +valB).toFixed();
+  if (operator == '-') return (+valA - +valB).toFixed();
+  if (operator == '/') return (+valA / +valB).toFixed();
+};
+
+const calculateString1 = s => eval(s.replace(/[^\d+*/.()-]/g, '')).toFixed();
