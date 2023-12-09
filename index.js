@@ -4835,3 +4835,36 @@ const calculateString = str => {
 };
 
 const calculateString1 = s => eval(s.replace(/[^\d+*/.()-]/g, '')).toFixed();
+
+// https://www.codewars.com/kata/56326c13e63f90538d00004e
+const getUsersIds = str =>
+  str
+    .replace(/#/g, '')
+    .trim()
+    .toLowerCase()
+    .split(',')
+    .map(item => item.trim().replace(/^uid/, '').trim());
+
+// https://www.codewars.com/kata/57b06f90e298a7b53d000a86
+const queueTime = (customers, n) => {
+  let tills = Array(n).fill(0);
+
+  customers.forEach(customer => {
+    let nextTill = tills.indexOf(Math.min(...tills));
+    tills[nextTill] += customer;
+  });
+
+  return Math.max(...tills);
+};
+
+// https://www.codewars.com/kata/5340298112fa30e786000688
+const twosDifference = input => [
+  ...input
+    .sort((a, b) => a - b)
+    .map((item1, _, arr) =>
+      arr.includes(item1 + 2)
+        ? [item1, ...arr.filter(item2 => item2 === item1 + 2)]
+        : null
+    )
+    .filter(Boolean),
+];
