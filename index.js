@@ -4868,3 +4868,13 @@ const twosDifference = input => [
     )
     .filter(Boolean),
 ];
+
+// https://www.codewars.com/kata/544aed4c4a30184e960010f4
+const divisors = integer => {
+  const result = Array.from(
+    { length: integer - 2 },
+    (_, i) => i + 1 + 1
+  ).filter(item => integer % item == 0);
+
+  return result.length ? result : `${integer} is prime`;
+};
