@@ -2823,6 +2823,11 @@ const rotateArr1 = (arr, n, m = n % arr.length) => [
   ...arr.slice(0, -m),
 ];
 
+const rotateArr2 = (arr, steps) => [
+  ...arr.slice(-(steps % arr.length)),
+  ...arr.slice(0, -(steps % arr.length)),
+];
+
 // https://www.codewars.com/kata/5a3e1319b6486ac96f000049
 const pairs = arr =>
   arr.reduce(
