@@ -4924,3 +4924,6 @@ const pillow = (s) => {
   }
   return false;
 };
+
+const pillowTwo = ([a, b]) =>
+  [...a].some((item, index) => item === "n" && b[index] === "B");
